@@ -1,6 +1,7 @@
 import { Moon, Sun, Palette } from "lucide-react";
 import { useTheme } from "next-themes";
 import * as React from "react";
+import { flushSync } from "react-dom";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -14,14 +15,41 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { THEME_PRESETS, useThemePreset } from "@/components/theme-provider";
+import {
+  centerOfElement,
+  resolveAppearance,
+  runAppearanceThemeTransition,
+} from "@/lib/theme-appearance-transition";
 
 export function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const { preset, setPreset } = useThemePreset();
   const [mounted, setMounted] = React.useState(false);
+  const lastPointer = React.useRef({ x: 0, y: 0 });
+
   React.useEffect(() => setMounted(true), []);
 
-  const isDark = mounted && (resolvedTheme === "dark");
+  React.useEffect(() => {
+    const onPointerDown = (e: PointerEvent) => {
+      lastPointer.current = { x: e.clientX, y: e.clientY };
+    };
+    window.addEventListener("pointerdown", onPointerDown, true);
+    return () => window.removeEventListener("pointerdown", onPointerDown, true);
+  }, []);
+
+  const transitionSetTheme = React.useCallback(
+    (next: string, origin: { x: number; y: number }) => {
+      const target = resolveAppearance(next);
+      runAppearanceThemeTransition(target, origin, () => {
+        flushSync(() => {
+          setTheme(next);
+        });
+      });
+    },
+    [setTheme],
+  );
+
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <div className="flex items-center gap-1">
@@ -29,7 +57,10 @@ export function ThemeSwitcher() {
         variant="ghost"
         size="icon"
         aria-label="Toggle dark mode"
-        onClick={() => setTheme(isDark ? "light" : "dark")}
+        onClick={(e) => {
+          const next = isDark ? "light" : "dark";
+          transitionSetTheme(next, centerOfElement(e.currentTarget));
+        }}
       >
         {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
       </Button>
@@ -41,13 +72,6 @@ export function ThemeSwitcher() {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-44">
-          <DropdownMenuLabel>Mode</DropdownMenuLabel>
-          <DropdownMenuRadioGroup value={theme ?? "system"} onValueChange={setTheme}>
-            <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="system">System</DropdownMenuRadioItem>
-          </DropdownMenuRadioGroup>
-          <DropdownMenuSeparator />
           <DropdownMenuLabel>Preset</DropdownMenuLabel>
           <DropdownMenuRadioGroup value={preset} onValueChange={setPreset}>
             {THEME_PRESETS.map((p) => (
