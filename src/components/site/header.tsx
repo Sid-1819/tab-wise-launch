@@ -2,19 +2,14 @@ import { Link } from "@tanstack/react-router";
 import { Github, Chrome } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/site/logo";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL, PRODUCT_NAME } from "@/lib/constants";
 
 function Wordmark() {
   return (
     <Link to="/" className="group flex items-center gap-2.5">
-      <span
-        aria-hidden
-        className="relative flex size-7 items-center justify-center rounded-md bg-foreground text-background"
-      >
-        <span className="absolute inset-1 rounded-sm border border-background/40" />
-        <span className="absolute left-1 top-1 h-1 w-2.5 rounded-sm bg-background/80" />
-      </span>
+      <Logo className="h-7 w-auto" />
       <span className="font-display text-lg tracking-tight">{PRODUCT_NAME}</span>
     </Link>
   );
