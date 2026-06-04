@@ -34,7 +34,7 @@ const PresetContext = React.createContext<PresetContextValue | null>(null);
 function PresetProvider({ children }: { children: React.ReactNode }) {
   const [preset, setPresetState] = React.useState<string>("default");
 
-  // Hydrate from storage on mount (avoids SSR mismatch).
+  // Hydrate from storage on mount.
   React.useEffect(() => {
     const stored =
       typeof window !== "undefined" ? window.localStorage.getItem(PRESET_STORAGE_KEY) : null;

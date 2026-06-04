@@ -2,27 +2,19 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export const Route = createFileRoute("/content")({
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy — Tab Wise" },
-      {
-        name: "description",
-        content:
-          "How Tab Wise handles your data: local-only storage, no analytics, no servers.",
-      },
-      { property: "og:title", content: "Privacy Policy — Tab Wise" },
-      {
-        property: "og:description",
-        content: "Tab Wise stores everything locally in your browser. No accounts, no tracking.",
-      },
-    ],
-  }),
   component: PrivacyPage,
 });
 
 function PrivacyPage() {
+  usePageMeta({
+    title: "Privacy Policy — Tab Wise",
+    description:
+      "How Tab Wise handles your data: local-only storage, no analytics, no servers.",
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
