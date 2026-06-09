@@ -1,7 +1,8 @@
-import { Chrome, Github, Command } from "lucide-react";
+import { Chrome, Github, Command, Pin } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { FeaturedStoreBadge } from "@/components/site/featured-badge";
 import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL } from "@/lib/constants";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -80,10 +81,13 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div className="container-prose grid items-center gap-12 py-20 md:grid-cols-[1.1fr_1fr] md:py-28 lg:py-32">
         <div ref={ref} className="reveal-stagger">
-          <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs font-normal">
-            <span className="mr-1.5 inline-block size-1.5 rounded-full bg-ring" />
-            Chrome side-panel extension
-          </Badge>
+          <div className="flex flex-wrap items-center gap-2">
+            <FeaturedStoreBadge />
+            <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs font-normal">
+              <span className="mr-1.5 inline-block size-1.5 rounded-full bg-ring" />
+              Chrome side-panel extension
+            </Badge>
+          </div>
 
           <h1 className="mt-5 text-balance font-display text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
             The wise way to wrangle your web.
@@ -110,9 +114,9 @@ export function Hero() {
           </div>
 
           <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-            <Command className="size-3.5" />
+            <Pin className="size-3.5" />
             <span>
-              Open the side panel from Chrome’s toolbar — pin Tab Wise for one-click access.
+              Pin Tab Wise for one-click access.
             </span>
           </div>
         </div>

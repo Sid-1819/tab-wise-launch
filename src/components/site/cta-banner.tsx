@@ -1,6 +1,7 @@
 import { Chrome, Github } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { FeaturedStoreBadge } from "@/components/site/featured-badge";
 import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL } from "@/lib/constants";
 import { useReveal } from "@/hooks/use-reveal";
 
@@ -17,6 +18,7 @@ export function CtaBanner() {
             <div className="bg-grid h-full w-full" />
           </div>
           <div className="relative max-w-2xl">
+            <FeaturedStoreBadge inverted className="mb-5" />
             <h2 className="font-display text-3xl leading-tight md:text-5xl">
               Stop hunting tabs. Start finishing them.
             </h2>

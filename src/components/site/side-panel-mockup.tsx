@@ -63,12 +63,17 @@ export function SidePanelMockup() {
                     <span className="size-2 rounded-full bg-ring" /> Work · 6
                   </div>
                   <div className="space-y-1">
-                    {["Design review — Figma", "Dashboard / Analytics", "PR #482 · GitHub"].map((t, i) => (
-                      <div key={i} className="flex items-center gap-2 rounded-md px-2 py-1.5 text-xs hover:bg-background">
-                        <span className="size-3 rounded-sm bg-foreground/20" />
-                        <span className="truncate">{t}</span>
-                      </div>
-                    ))}
+                    {["Design review — Figma", "Dashboard / Analytics", "PR #482 · GitHub"].map(
+                      (t, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 rounded-md px-2 py-1.5 text-xs hover:bg-background"
+                        >
+                          <span className="size-3 rounded-sm bg-foreground/20" />
+                          <span className="truncate">{t}</span>
+                        </div>
+                      ),
+                    )}
                   </div>
                 </div>
 
@@ -78,12 +83,17 @@ export function SidePanelMockup() {
                     <span className="size-2 rounded-full bg-foreground/40" /> Reading · 4
                   </div>
                   <div className="space-y-1">
-                    {["Why side panels won", "Notes on calm software", "Long-form: focus debt"].map((t, i) => (
-                      <div key={i} className="flex items-center gap-2 rounded-md px-2 py-1.5 text-xs hover:bg-background">
-                        <span className="size-3 rounded-sm bg-foreground/20" />
-                        <span className="truncate">{t}</span>
-                      </div>
-                    ))}
+                    {["Why side panels won", "Notes on calm software", "Long-form: focus debt"].map(
+                      (t, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 rounded-md px-2 py-1.5 text-xs hover:bg-background"
+                        >
+                          <span className="size-3 rounded-sm bg-foreground/20" />
+                          <span className="truncate">{t}</span>
+                        </div>
+                      ),
+                    )}
                   </div>
                 </div>
 
@@ -94,10 +104,6 @@ export function SidePanelMockup() {
               </aside>
             </div>
           </div>
-
-          <p className="mt-4 text-center text-xs text-muted-foreground">
-            Mockup — replace with real side-panel screenshot.
-          </p>
         </div>
       </div>
     </section>

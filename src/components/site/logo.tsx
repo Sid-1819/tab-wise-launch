@@ -1,5 +1,4 @@
-import logoDark from "@/public/tw_dark-removebg-preview.png";
-import logoLight from "@/public/tw_light-removebg-preview.png";
+import { LOGO_DARK_SRC, LOGO_LIGHT_SRC } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -11,13 +10,13 @@ export function Logo({ className, alt = "Tab Wise" }: LogoProps) {
   return (
     <span role="img" aria-label={alt} className={cn("inline-block shrink-0", className)}>
       <img
-        src={logoLight}
+        src={LOGO_LIGHT_SRC}
         alt=""
         aria-hidden
         className="block h-full w-full object-contain dark:hidden"
       />
       <img
-        src={logoDark}
+        src={LOGO_DARK_SRC}
         alt=""
         aria-hidden
         className="hidden h-full w-full object-contain dark:block"

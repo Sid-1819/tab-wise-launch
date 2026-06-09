@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 
+import { FaviconThemeSync } from "@/components/favicon-theme-sync";
 import { ThemeProvider } from "@/components/theme-provider";
 
 function NotFoundComponent() {
@@ -32,6 +33,7 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <ThemeProvider>
+      <FaviconThemeSync />
       <Outlet />
     </ThemeProvider>
   );

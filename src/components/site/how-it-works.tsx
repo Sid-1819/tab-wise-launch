@@ -7,7 +7,7 @@ const STEPS = [
     icon: Chrome,
     label: "01",
     title: "Install from the Chrome Web Store",
-    body: "One click. No account, no onboarding wizard, no nag screens.",
+    body: "One click. Featured on the Chrome Web Store — no account, no onboarding wizard, no nag screens.",
   },
   {
     icon: PanelRight,
