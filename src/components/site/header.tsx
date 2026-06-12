@@ -4,13 +4,12 @@ import { Github, Chrome } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/site/logo";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL, PRODUCT_NAME } from "@/lib/constants";
+import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL } from "@/lib/constants";
 
 function Wordmark() {
   return (
-    <Link to="/" className="group flex items-center gap-2.5">
-      <Logo className="h-7 w-auto" />
-      <span className="font-display text-lg tracking-tight">{PRODUCT_NAME}</span>
+    <Link to="/" className="group flex items-center">
+      <Logo className="h-8 w-auto" />
     </Link>
   );
 }

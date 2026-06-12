@@ -9,10 +9,9 @@ export function Footer() {
     <footer className="border-t border-hairline/70 bg-surface-muted/40">
       <div className="container-prose flex flex-col gap-8 py-12 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
-          <div className="flex items-center gap-2.5">
-            <Logo className="h-8 w-auto" />
-            <span className="font-display text-xl tracking-tight">{PRODUCT_NAME}</span>
-          </div>
+          <Link to="/">
+            <Logo className="h-9 w-auto" />
+          </Link>
           <p className="mt-2 text-sm text-muted-foreground">
             A calm, side-panel tab manager for Chrome. Search, group, save and restore — without
             leaving the page.

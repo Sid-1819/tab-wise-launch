@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
 
-import { LOGO_DARK_SRC, LOGO_LIGHT_SRC } from "@/lib/constants";
+import { FAVICON_DARK_SRC, FAVICON_LIGHT_SRC } from "@/lib/constants";
 
 const FAVICON_ID = "tabwise-favicon";
 
@@ -22,7 +22,7 @@ export function FaviconThemeSync() {
 
   useEffect(() => {
     if (!resolvedTheme) return;
-    setFavicon(resolvedTheme === "dark" ? LOGO_DARK_SRC : LOGO_LIGHT_SRC);
+    setFavicon(resolvedTheme === "dark" ? FAVICON_DARK_SRC : FAVICON_LIGHT_SRC);
   }, [resolvedTheme]);
 
   return null;

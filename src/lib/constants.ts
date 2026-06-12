@@ -5,7 +5,11 @@ export const PRODUCT_NAME = "Tab Wise";
 export const TAGLINE = "The wise way to wrangle your web.";
 export const FEATURED_BADGE_LABEL = "Featured on Chrome Web Store";
 
-/** Black mark for light backgrounds */
-export const LOGO_LIGHT_SRC = "/tw_light-removebg-preview.png";
-/** White mark for dark backgrounds */
-export const LOGO_DARK_SRC = "/tw_dark-removebg-preview.png";
+/** Full wordmark for light backgrounds */
+export const LOGO_LIGHT_SRC = "/Tab-Wise-full-light-removebg-preview.png";
+/** Full wordmark for dark backgrounds */
+export const LOGO_DARK_SRC = "/Tab-Wise-full-dark-removebg-preview.png";
+/** Icon mark for light backgrounds (favicon) */
+export const FAVICON_LIGHT_SRC = "/tw_light-removebg-preview.png";
+/** Icon mark for dark backgrounds (favicon) */
+export const FAVICON_DARK_SRC = "/tw_dark-removebg-preview.png";
