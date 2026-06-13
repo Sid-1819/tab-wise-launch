@@ -10,7 +10,6 @@ import { HowItWorks } from "@/components/site/how-it-works";
 import { Trust } from "@/components/site/trust";
 import { Faq } from "@/components/site/faq";
 import { CtaBanner } from "@/components/site/cta-banner";
-
 export const Route = createFileRoute("/")({
   component: Index,
 });

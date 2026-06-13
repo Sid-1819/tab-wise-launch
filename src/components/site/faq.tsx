@@ -1,6 +1,7 @@
 import {
   Accordion, AccordionContent, AccordionItem, AccordionTrigger,
 } from "@/components/ui/accordion";
+import { FeedbackButton } from "@/components/site/feedback-button";
 import { useReveal } from "@/hooks/use-reveal";
 
 const FAQS = [
@@ -54,6 +55,9 @@ export function Faq() {
               </AccordionItem>
             ))}
           </Accordion>
+          <div className="mt-10">
+            <FeedbackButton />
+          </div>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Github, Chrome } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { FeedbackButton } from "@/components/site/feedback-button";
 import { Logo } from "@/components/site/logo";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL } from "@/lib/constants";
@@ -27,6 +28,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-1.5">
           <ThemeSwitcher />
+          <FeedbackButton variant="ghost" size="icon" showLabel={false} />
           <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
             <a href={GITHUB_REPO_URL} target="_blank" rel="noreferrer">
               <Github className="size-4" />

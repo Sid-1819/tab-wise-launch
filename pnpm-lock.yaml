@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@encatch/web-sdk':
+        specifier: ^1.3.0
+        version: 1.3.0
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.4.0(react-hook-form@7.77.0(react@19.2.7))
@@ -314,6 +317,10 @@ packages:
 
   '@date-fns/tz@1.5.0':
     resolution: {integrity: sha512-lwYN/vDPeNRULcepoE/LO2Pgx+7/RV+S9ARfbc9lr2DtGkOD7pAiruHvbR1RX3Qyf6ja47EWJDMsNK5vK08DJg==}
+
+  '@encatch/web-sdk@1.3.0':
+    resolution: {integrity: sha512-GWXPkm4CODJ9tU3UxQtCeFGWDM9WcaAzSVjQ4CUMrqTRZteewK65YJlB2iO5R6elz2o9AaD94hSp0CGL2iOFiw==}
+    engines: {node: '>=18'}
 
   '@esbuild/aix-ppc64@0.27.7':
     resolution: {integrity: sha512-EKX3Qwmhz1eMdEJokhALr0YiD0lhQNwDqkPYyPhiSwKrh7/4KRjQc04sZ8db+5DVVnZ1LmbNDI1uAMPEUBnQPg==}
@@ -2737,6 +2744,8 @@ snapshots:
       '@babel/helper-validator-identifier': 7.29.7
 
   '@date-fns/tz@1.5.0': {}
+
+  '@encatch/web-sdk@1.3.0': {}
 
   '@esbuild/aix-ppc64@0.27.7':
     optional: true

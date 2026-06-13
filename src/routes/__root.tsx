@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 
+import { EncatchProvider } from "@/components/encatch-provider";
 import { FaviconThemeSync } from "@/components/favicon-theme-sync";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -33,8 +34,10 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <ThemeProvider>
-      <FaviconThemeSync />
-      <Outlet />
+      <EncatchProvider>
+        <FaviconThemeSync />
+        <Outlet />
+      </EncatchProvider>
     </ThemeProvider>
   );
 }
