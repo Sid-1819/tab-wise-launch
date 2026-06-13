@@ -61,7 +61,7 @@ export function Trust() {
           </div>
 
           <Link
-            to="/content"
+            to="/privacy"
             className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline"
           >
             Read the full privacy policy <ArrowRight className="size-3.5" />

@@ -43,15 +43,8 @@ export function Footer() {
                   <Github className="size-3.5" /> GitHub
                 </a>
               </li>
-              <li><Link to="/content" className="hover:text-foreground">Privacy</Link></li>
-            </ul>
-          </div>
-          <div>
-            <div className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-              Contact
-            </div>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>hello@tabwise.app</li>
+              <li><a className="hover:text-foreground" href="/#contribute">Contribute</a></li>
+              <li><Link to="/privacy" className="hover:text-foreground">Privacy</Link></li>
             </ul>
           </div>
         </div>

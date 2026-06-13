@@ -9,6 +9,7 @@ import { SidePanelMockup } from "@/components/site/side-panel-mockup";
 import { HowItWorks } from "@/components/site/how-it-works";
 import { Trust } from "@/components/site/trust";
 import { Faq } from "@/components/site/faq";
+import { Contribute } from "@/components/site/contribute";
 import { CtaBanner } from "@/components/site/cta-banner";
 export const Route = createFileRoute("/")({
   component: Index,
@@ -26,6 +27,7 @@ function Index() {
         <HowItWorks />
         <Trust />
         <Faq />
+        <Contribute />
         <CtaBanner />
       </main>
       <Footer />

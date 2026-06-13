@@ -2,7 +2,7 @@ import { Chrome, Github } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { FeaturedStoreBadge } from "@/components/site/featured-badge";
-import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL } from "@/lib/constants";
+import { CHROME_WEB_STORE_URL, GITHUB_ISSUES_URL, GITHUB_REPO_URL } from "@/lib/constants";
 import { useReveal } from "@/hooks/use-reveal";
 
 export function CtaBanner() {
@@ -24,7 +24,14 @@ export function CtaBanner() {
             </h2>
             <p className="mt-4 text-lg text-background/70">
               Free, local-first, side-panel-native. Install Tab Wise and reclaim the right edge
-              of your browser.
+              of your browser — or{" "}
+              <a
+                href="/#contribute"
+                className="text-background underline underline-offset-2 hover:no-underline"
+              >
+                help build it
+              </a>
+              .
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
@@ -43,8 +50,18 @@ export function CtaBanner() {
                 variant="outline"
                 className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"
               >
-                <a href={GITHUB_REPO_URL} target="_blank" rel="noreferrer">
+                <a href={GITHUB_ISSUES_URL} target="_blank" rel="noreferrer">
                   <Github className="size-4" />
+                  Browse issues
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"
+              >
+                <a href={GITHUB_REPO_URL} target="_blank" rel="noreferrer">
                   GitHub
                 </a>
               </Button>

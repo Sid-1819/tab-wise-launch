@@ -3,7 +3,7 @@ import { Chrome, Github, Command, Pin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FeaturedStoreBadge } from "@/components/site/featured-badge";
-import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL } from "@/lib/constants";
+import { CHROME_WEB_STORE_URL } from "@/lib/constants";
 import { useReveal } from "@/hooks/use-reveal";
 
 /**
@@ -87,6 +87,9 @@ export function Hero() {
               <span className="mr-1.5 inline-block size-1.5 rounded-full bg-ring" />
               Chrome side-panel extension
             </Badge>
+            <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs font-normal">
+              Open source
+            </Badge>
           </div>
 
           <h1 className="mt-5 text-balance font-display text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
@@ -106,9 +109,9 @@ export function Hero() {
               </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href={GITHUB_REPO_URL} target="_blank" rel="noreferrer">
+              <a href="/#contribute">
                 <Github className="size-4" />
-                View on GitHub
+                Contribute
               </a>
             </Button>
           </div>

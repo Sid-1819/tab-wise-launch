@@ -9,6 +9,7 @@ type FeedbackButtonProps = {
   size?: React.ComponentProps<typeof Button>["size"];
   showLabel?: boolean;
   className?: string;
+  onClick?: () => void;
 };
 
 export function FeedbackButton({
@@ -16,6 +17,7 @@ export function FeedbackButton({
   size = "default",
   showLabel = true,
   className,
+  onClick,
 }: FeedbackButtonProps) {
   return (
     <Button
@@ -24,7 +26,10 @@ export function FeedbackButton({
       size={size}
       className={cn(className)}
       aria-label="Feedback and support"
-      onClick={() => showFeedbackForm()}
+      onClick={() => {
+        showFeedbackForm();
+        onClick?.();
+      }}
     >
       <MessageSquare className="size-4" />
       {showLabel ? "Feedback & Support" : null}

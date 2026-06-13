@@ -1,10 +1,20 @@
+import type { ReactNode } from "react";
 import {
-  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FeedbackButton } from "@/components/site/feedback-button";
+import {
+  GITHUB_CONTRIBUTING_URL,
+  GITHUB_GOOD_FIRST_ISSUES_URL,
+  GITHUB_ISSUES_URL,
+  GITHUB_REPO_URL,
+} from "@/lib/constants";
 import { useReveal } from "@/hooks/use-reveal";
 
-const FAQS = [
+const FAQS: { q: string; a: ReactNode }[] = [
   {
     q: "Does Tab Wise read the contents of my pages?",
     a: "No. It works with tab metadata only — titles, URLs and group state — never the contents of a page.",
@@ -27,7 +37,54 @@ const FAQS = [
   },
   {
     q: "Is it free? Open source?",
-    a: "Free to install from the Chrome Web Store. The repo is linked from the header — feel free to file issues or contribute.",
+    a: (
+      <>
+        Free to install from the Chrome Web Store and{" "}
+        <a
+          className="text-foreground underline underline-offset-2 hover:no-underline"
+          href={GITHUB_REPO_URL}
+          target="_blank"
+          rel="noreferrer"
+        >
+          open source on GitHub
+        </a>
+        . File a{" "}
+        <a
+          className="text-foreground underline underline-offset-2 hover:no-underline"
+          href={GITHUB_ISSUES_URL}
+          target="_blank"
+          rel="noreferrer"
+        >
+          bug or feature request
+        </a>
+        , grab a{" "}
+        <a
+          className="text-foreground underline underline-offset-2 hover:no-underline"
+          href={GITHUB_GOOD_FIRST_ISSUES_URL}
+          target="_blank"
+          rel="noreferrer"
+        >
+          good first issue
+        </a>
+        , or read the{" "}
+        <a
+          className="text-foreground underline underline-offset-2 hover:no-underline"
+          href={GITHUB_CONTRIBUTING_URL}
+          target="_blank"
+          rel="noreferrer"
+        >
+          contributing guide
+        </a>{" "}
+        before opening a PR. See also{" "}
+        <a
+          className="text-foreground underline underline-offset-2 hover:no-underline"
+          href="/#contribute"
+        >
+          how to contribute
+        </a>
+        .
+      </>
+    ),
   },
 ];
 
