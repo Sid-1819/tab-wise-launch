@@ -24,6 +24,7 @@ export function Footer() {
             </div>
             <ul className="space-y-2">
               <li><a className="hover:text-foreground" href="#features">Features</a></li>
+              <li><a className="hover:text-foreground" href="#whats-new">What’s new</a></li>
               <li><a className="hover:text-foreground" href="#how">How it works</a></li>
               <li><a className="hover:text-foreground" href="#faq">FAQ</a></li>
             </ul>

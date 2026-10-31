@@ -3,7 +3,7 @@ import { useReveal } from "@/hooks/use-reveal";
 export function WhyItExists() {
   const ref = useReveal<HTMLDivElement>();
   return (
-    <section className="border-y border-hairline/70 bg-surface-muted/30 py-20 md:py-24">
+    <section className="border-b border-hairline/70 bg-surface-muted/30 py-20 md:py-24">
       <div className="container-prose grid gap-12 md:grid-cols-[1fr_1.4fr]">
         <div ref={ref} className="reveal">
           <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">

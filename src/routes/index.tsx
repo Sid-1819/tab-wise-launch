@@ -5,6 +5,7 @@ import { Footer } from "@/components/site/footer";
 import { Hero } from "@/components/site/hero";
 import { WhyItExists } from "@/components/site/why";
 import { Features } from "@/components/site/features";
+import { WhatsNew } from "@/components/site/whats-new";
 import { SidePanelMockup } from "@/components/site/side-panel-mockup";
 import { HowItWorks } from "@/components/site/how-it-works";
 import { Trust } from "@/components/site/trust";
@@ -21,6 +22,7 @@ function Index() {
       <Header />
       <main>
         <Hero />
+        <WhatsNew />
         <WhyItExists />
         <SidePanelMockup />
         <Features />

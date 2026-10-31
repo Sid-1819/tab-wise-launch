@@ -1,9 +1,10 @@
 import { Chrome, Github, Command, Pin } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Badge, badgeVariants } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import { FeaturedStoreBadge } from "@/components/site/featured-badge";
-import { CHROME_WEB_STORE_URL } from "@/lib/constants";
+import { CHROME_WEB_STORE_URL, PRODUCT_VERSION } from "@/lib/constants";
 import { useReveal } from "@/hooks/use-reveal";
 
 /**
@@ -83,6 +84,15 @@ export function Hero() {
         <div ref={ref} className="reveal-stagger">
           <div className="flex flex-wrap items-center gap-2">
             <FeaturedStoreBadge />
+            <a
+              href="/#whats-new"
+              className={cn(
+                badgeVariants({ variant: "secondary" }),
+                "rounded-full px-3 py-1 text-xs font-normal",
+              )}
+            >
+              Version {PRODUCT_VERSION}
+            </a>
             <Badge variant="secondary" className="rounded-full px-3 py-1 text-xs font-normal">
               <span className="mr-1.5 inline-block size-1.5 rounded-full bg-ring" />
               Chrome side-panel extension
