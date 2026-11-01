@@ -1,4 +1,6 @@
-import { Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import { ShieldCheck, ArrowRight } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
@@ -61,7 +63,7 @@ export function Trust() {
           </div>
 
           <Link
-            to="/privacy"
+            href="/privacy"
             className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:underline"
           >
             Read the full privacy policy <ArrowRight className="size-3.5" />

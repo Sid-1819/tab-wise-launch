@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Search, Layers, Save, History, Copy, Activity, Cpu, Palette, Pin,
 } from "lucide-react";

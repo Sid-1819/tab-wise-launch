@@ -1,28 +1,35 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import Link from "next/link";
 
-import { Header } from "@/components/site/header";
-import { Footer } from "@/components/site/footer";
 import { FeedbackButton } from "@/components/site/feedback-button";
-import { usePageMeta } from "@/hooks/use-page-meta";
-import { PRODUCT_NAME } from "@/lib/constants";
+import { SiteLayout } from "@/components/site/site-layout";
+import { GITHUB_REPO_URL, PRODUCT_NAME } from "@/lib/constants";
+import { breadcrumbJsonLd, pageMetadata, webpageJsonLd } from "@/lib/seo";
 
 const LAST_UPDATED = "June 13, 2026";
 
-export const Route = createFileRoute("/privacy")({
-  component: PrivacyPage,
+export const metadata = pageMetadata({
+  title: "Privacy Policy",
+  description:
+    "How Tab Wise handles your data: local-only extension storage, no accounts, and transparent permissions.",
+  path: "/privacy",
 });
 
-function PrivacyPage() {
-  usePageMeta({
-    title: `Privacy Policy — ${PRODUCT_NAME}`,
-    description:
-      "How Tab Wise handles your data: local-only extension storage, no accounts, and transparent permissions.",
-  });
-
+export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header />
-      <main className="container-prose py-20 md:py-28">
+    <SiteLayout
+      jsonLd={[
+        webpageJsonLd({
+          title: "Privacy Policy",
+          description: metadata.description ?? "",
+          path: "/privacy",
+        }),
+        breadcrumbJsonLd([
+          { name: PRODUCT_NAME, path: "/" },
+          { name: "Privacy Policy", path: "/privacy" },
+        ]),
+      ]}
+    >
+      <div className="container-prose py-20 md:py-28">
         <div className="mx-auto max-w-2xl">
           <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
             Privacy
@@ -135,7 +142,7 @@ function PrivacyPage() {
                 an issue on{" "}
                 <a
                   className="text-foreground underline"
-                  href="https://github.com/Sid-1819/tab-wise"
+                  href={GITHUB_REPO_URL}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -148,14 +155,13 @@ function PrivacyPage() {
           </div>
 
           <div className="mt-12">
-            <Link to="/" className="text-sm font-medium hover:underline">
+            <Link href="/" className="text-sm font-medium hover:underline">
               ← Back to home
             </Link>
           </div>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </SiteLayout>
   );
 }
 

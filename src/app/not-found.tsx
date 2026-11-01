@@ -1,10 +1,6 @@
-import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
+import Link from "next/link";
 
-import { EncatchProvider } from "@/components/encatch-provider";
-import { FaviconThemeSync } from "@/components/favicon-theme-sync";
-import { ThemeProvider } from "@/components/theme-provider";
-
-function NotFoundComponent() {
+export default function NotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -15,7 +11,7 @@ function NotFoundComponent() {
         </p>
         <div className="mt-6">
           <Link
-            to="/"
+            href="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Go home
@@ -23,21 +19,5 @@ function NotFoundComponent() {
         </div>
       </div>
     </div>
-  );
-}
-
-export const Route = createRootRoute({
-  component: RootComponent,
-  notFoundComponent: NotFoundComponent,
-});
-
-function RootComponent() {
-  return (
-    <ThemeProvider>
-      <EncatchProvider>
-        <FaviconThemeSync />
-        <Outlet />
-      </EncatchProvider>
-    </ThemeProvider>
   );
 }

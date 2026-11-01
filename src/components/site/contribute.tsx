@@ -1,3 +1,5 @@
+"use client";
+
 import { Bug, GitPullRequest, Sparkles, Github, ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

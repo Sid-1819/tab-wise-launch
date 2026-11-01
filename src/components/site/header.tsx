@@ -1,5 +1,7 @@
+"use client";
+
 import * as React from "react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { Chrome, Github, Menu } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -16,48 +18,19 @@ import {
 import { CHROME_WEB_STORE_URL, GITHUB_REPO_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-type NavLink =
-  | { label: string; href: string }
-  | { label: string; to: "/privacy" };
-
-const NAV_LINKS: NavLink[] = [
-  { label: "Features", href: "/#features" },
-  { label: "What’s new", href: "/#whats-new" },
-  { label: "How it works", href: "/#how" },
-  { label: "Privacy", to: "/privacy" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Contribute", href: "/#contribute" },
-];
+const NAV_LINKS = [
+  { label: "Features", href: "/features" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Changelog", href: "/changelog" },
+  { label: "Compare", href: "/compare" },
+  { label: "Privacy", href: "/privacy" },
+] as const;
 
 function Wordmark() {
   return (
-    <Link to="/" className="group flex shrink-0 items-center">
+    <Link href="/" className="group flex shrink-0 items-center">
       <Logo className="h-7 w-auto sm:h-8" />
     </Link>
-  );
-}
-
-function NavLinkItem({
-  link,
-  className,
-  onNavigate,
-}: {
-  link: NavLink;
-  className?: string;
-  onNavigate?: () => void;
-}) {
-  if ("to" in link) {
-    return (
-      <Link to={link.to} className={className} onClick={onNavigate}>
-        {link.label}
-      </Link>
-    );
-  }
-
-  return (
-    <a href={link.href} className={className} onClick={onNavigate}>
-      {link.label}
-    </a>
   );
 }
 
@@ -73,12 +46,14 @@ function NavLinks({
   return (
     <nav className={className}>
       {NAV_LINKS.map((link) => (
-        <NavLinkItem
-          key={link.label}
-          link={link}
+        <Link
+          key={link.href}
+          href={link.href}
           className={cn("transition-colors hover:text-foreground", linkClassName)}
-          onNavigate={onNavigate}
-        />
+          onClick={onNavigate}
+        >
+          {link.label}
+        </Link>
       ))}
     </nav>
   );
@@ -86,18 +61,12 @@ function NavLinks({
 
 function MobileNav() {
   const [open, setOpen] = React.useState(false);
-
   const close = React.useCallback(() => setOpen(false), []);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="lg:hidden"
-          aria-label="Open menu"
-        >
+        <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
           <Menu className="size-5" />
         </Button>
       </SheetTrigger>
@@ -172,12 +141,7 @@ export function Header() {
               Add to Chrome
             </a>
           </Button>
-          <Button
-            asChild
-            size="icon"
-            className="shrink-0 sm:hidden"
-            aria-label="Add to Chrome"
-          >
+          <Button asChild size="icon" className="shrink-0 sm:hidden" aria-label="Add to Chrome">
             <a href={CHROME_WEB_STORE_URL} target="_blank" rel="noreferrer">
               <Chrome className="size-4" />
             </a>

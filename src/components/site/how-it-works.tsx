@@ -1,3 +1,5 @@
+"use client";
+
 import { Chrome, PanelRight, Sparkles } from "lucide-react";
 
 import { useReveal } from "@/hooks/use-reveal";

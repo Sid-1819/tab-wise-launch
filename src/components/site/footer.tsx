@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { Github, Chrome } from "lucide-react";
 
 import { Logo } from "@/components/site/logo";
@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="border-t border-hairline/70 bg-surface-muted/40">
       <div className="container-prose flex flex-col gap-8 py-12 md:flex-row md:items-start md:justify-between">
         <div className="max-w-sm">
-          <Link to="/">
+          <Link href="/">
             <Logo className="h-9 w-auto" />
           </Link>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -23,10 +23,26 @@ export function Footer() {
               Product
             </div>
             <ul className="space-y-2">
-              <li><a className="hover:text-foreground" href="#features">Features</a></li>
-              <li><a className="hover:text-foreground" href="#whats-new">What’s new</a></li>
-              <li><a className="hover:text-foreground" href="#how">How it works</a></li>
-              <li><a className="hover:text-foreground" href="#faq">FAQ</a></li>
+              <li>
+                <Link className="hover:text-foreground" href="/features">
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-foreground" href="/changelog">
+                  Changelog
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-foreground" href="/faq">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-foreground" href="/compare">
+                  Compare
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -35,23 +51,43 @@ export function Footer() {
             </div>
             <ul className="space-y-2">
               <li>
-                <a className="inline-flex items-center gap-1.5 hover:text-foreground" href={CHROME_WEB_STORE_URL} target="_blank" rel="noreferrer">
+                <a
+                  className="inline-flex items-center gap-1.5 hover:text-foreground"
+                  href={CHROME_WEB_STORE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Chrome className="size-3.5" /> Web Store
                 </a>
               </li>
               <li>
-                <a className="inline-flex items-center gap-1.5 hover:text-foreground" href={GITHUB_REPO_URL} target="_blank" rel="noreferrer">
+                <a
+                  className="inline-flex items-center gap-1.5 hover:text-foreground"
+                  href={GITHUB_REPO_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Github className="size-3.5" /> GitHub
                 </a>
               </li>
-              <li><a className="hover:text-foreground" href="/#contribute">Contribute</a></li>
-              <li><Link to="/privacy" className="hover:text-foreground">Privacy</Link></li>
+              <li>
+                <Link className="hover:text-foreground" href="/#contribute">
+                  Contribute
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="hover:text-foreground">
+                  Privacy
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       </div>
       <div className="container-prose flex flex-col items-start justify-between gap-2 border-t border-hairline/70 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center">
-        <div>© {new Date().getFullYear()} {PRODUCT_NAME}. Made for focused work.</div>
+        <div>
+          © {new Date().getFullYear()} {PRODUCT_NAME}. Made for focused work.
+        </div>
         <div>Not affiliated with Google LLC. Chrome is a trademark of Google.</div>
       </div>
     </footer>

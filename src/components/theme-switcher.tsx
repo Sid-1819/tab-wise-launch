@@ -1,3 +1,5 @@
+"use client";
+
 import { Moon, Sun, Palette } from "lucide-react";
 import { useTheme } from "next-themes";
 import * as React from "react";

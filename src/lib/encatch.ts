@@ -4,7 +4,7 @@ let initialized = false;
 
 export function isEncatchConfigured(): boolean {
   return Boolean(
-    import.meta.env.VITE_ENCATCH_API_KEY && import.meta.env.VITE_ENCATCH_FORM_ID,
+    process.env.NEXT_PUBLIC_ENCATCH_API_KEY && process.env.NEXT_PUBLIC_ENCATCH_FORM_ID,
   );
 }
 
@@ -16,9 +16,9 @@ export function toEncatchTheme(theme: string | undefined): Theme {
 }
 
 export function initEncatch(theme: Theme): void {
-  if (initialized || !import.meta.env.VITE_ENCATCH_API_KEY) return;
+  if (initialized || !process.env.NEXT_PUBLIC_ENCATCH_API_KEY) return;
 
-  _encatch.init(import.meta.env.VITE_ENCATCH_API_KEY, { theme });
+  _encatch.init(process.env.NEXT_PUBLIC_ENCATCH_API_KEY, { theme });
   initialized = true;
 }
 
@@ -28,9 +28,9 @@ export function syncEncatchTheme(theme: Theme): void {
 }
 
 export function showFeedbackForm(): void {
-  const formId = import.meta.env.VITE_ENCATCH_FORM_ID;
+  const formId = process.env.NEXT_PUBLIC_ENCATCH_FORM_ID;
   if (!formId) {
-    console.warn("VITE_ENCATCH_FORM_ID is not configured");
+    console.warn("NEXT_PUBLIC_ENCATCH_FORM_ID is not configured");
     return;
   }
   _encatch.showForm(formId);

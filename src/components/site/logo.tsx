@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { LOGO_DARK_SRC, LOGO_LIGHT_SRC } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -9,17 +11,23 @@ type LogoProps = {
 export function Logo({ className, alt = "Tab Wise" }: LogoProps) {
   return (
     <span role="img" aria-label={alt} className={cn("inline-block shrink-0", className)}>
-      <img
+      <Image
         src={LOGO_LIGHT_SRC}
         alt=""
+        width={220}
+        height={40}
+        priority
         aria-hidden
-        className="block h-full w-full object-contain dark:hidden"
+        className="block h-full w-auto object-contain dark:hidden"
       />
-      <img
+      <Image
         src={LOGO_DARK_SRC}
         alt=""
+        width={220}
+        height={40}
+        priority
         aria-hidden
-        className="hidden h-full w-full object-contain dark:block"
+        className="hidden h-full w-auto object-contain dark:block"
       />
     </span>
   );

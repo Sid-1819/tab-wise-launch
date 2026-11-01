@@ -1,11 +1,10 @@
-import { Chrome, Github, Command, Pin } from "lucide-react";
+import { Chrome, Github, Pin } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge, badgeVariants } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { FeaturedStoreBadge } from "@/components/site/featured-badge";
 import { CHROME_WEB_STORE_URL, PRODUCT_VERSION } from "@/lib/constants";
-import { useReveal } from "@/hooks/use-reveal";
 
 /**
  * Abstract motion: small "tab" cards drift in and snap into a grouped grid.
@@ -77,11 +76,10 @@ function TabsMotif() {
 }
 
 export function Hero() {
-  const ref = useReveal<HTMLDivElement>();
   return (
     <section className="relative overflow-hidden">
       <div className="container-prose grid items-center gap-12 py-20 md:grid-cols-[1.1fr_1fr] md:py-28 lg:py-32">
-        <div ref={ref} className="reveal-stagger">
+        <div>
           <div className="flex flex-wrap items-center gap-2">
             <FeaturedStoreBadge />
             <a
@@ -103,7 +101,7 @@ export function Hero() {
           </div>
 
           <h1 className="mt-5 text-balance font-display text-5xl leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-            The wise way to wrangle your web.
+            Tab Wise — a Chrome side-panel tab manager.
           </h1>
 
           <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">

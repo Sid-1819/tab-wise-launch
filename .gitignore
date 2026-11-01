@@ -13,6 +13,8 @@ bun.lockb
 
 dist
 dist-ssr
+.next
+out
 .output
 .vinxi
 .tanstack/**
