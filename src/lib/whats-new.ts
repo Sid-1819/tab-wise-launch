@@ -1,34 +1,27 @@
 export const WHATS_NEW_NOTES = [
   {
     n: "01",
-    title: "Sleep unused tabs",
-    body: "Tabs you haven’t touched gather in one place. Sleep them to free memory, or close them. Sleeping tabs stay listed, dimmed, until you open them again.",
+    title: "Keys for the open panel",
+    body: "j and k move, Enter opens, x closes, s sleeps, r reloads, and n starts a new tab. / focuses search. Arrows work the same way.",
   },
   {
     n: "02",
-    title: "Every window, one panel",
-    body: "Stay on this window, or see all of them. Collapse a window, or move a tab into the other one.",
+    title: "A command palette",
+    body: "Press Command+K on Mac, or Ctrl+K elsewhere. From there: a new tab, search, this window or all windows, a new group, activity, sleep or close unused tabs, and close duplicate extras.",
   },
   {
     n: "03",
-    title: "Nested domain groups",
-    body: "Pages from the same site nest by subdomain, so docs don’t sit in one flat list with the homepage.",
+    title: "Chrome’s own groups",
+    body: "Groups you made in Chrome show in the panel, with their name and color. A setting can hide them.",
   },
   {
     n: "04",
-    title: "Duplicates that still match",
-    body: "The same page still counts when one URL has www, a trailing slash, or tracking parameters.",
-  },
-  {
-    n: "05",
-    title: "Favicons that stay visible",
-    body: "Light icons are detected so they don’t disappear against a dark panel.",
-  },
-  {
-    n: "06",
-    title: "Colors you can name",
-    body: "Each group swatch has a name, and the check stays readable on light and dark colors.",
+    title: "Localhost stays together",
+    body: "Loopback tabs group as Localhost. Plain IP addresses stay as their own group instead of a broken domain name.",
   },
 ] as const;
 
-export const CHANGELOG_UPDATED = "August 2026";
+export const CHANGELOG_UPDATED = "November 2026";
+
+export const CHANGELOG_LEDE =
+  "Version 2.6 is for moving through the panel without reaching for the mouse, and for seeing the groups you already made in Chrome.";
