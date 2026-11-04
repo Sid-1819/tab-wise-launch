@@ -13,6 +13,7 @@ export const ROUTES = {
   features: "/features",
   faq: "/faq",
   changelog: "/changelog",
+  welcome: "/welcome",
   compare: "/compare",
   privacy: "/privacy",
 } as const;

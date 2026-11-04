@@ -12,7 +12,24 @@ export const metadata = pageMetadata({
   path: "/changelog",
 });
 
-export default function ChangelogPage() {
+const VERSION_PARAM = /^\d+(\.\d+){0,3}$/;
+
+function versionParam(value: string | string[] | undefined): string | null {
+  const raw = Array.isArray(value) ? value[0] : value;
+  if (!raw || !VERSION_PARAM.test(raw)) return null;
+  return raw;
+}
+
+export default async function ChangelogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ from?: string | string[]; to?: string | string[] }>;
+}) {
+  const params = await searchParams;
+  const fromVersion = versionParam(params.from);
+  const toVersion = versionParam(params.to);
+  const updatedBetween = fromVersion && toVersion ? { from: fromVersion, to: toVersion } : null;
+
   return (
     <SiteLayout
       jsonLd={[
@@ -36,9 +53,12 @@ export default function ChangelogPage() {
             What’s new in Tab Wise {PRODUCT_VERSION}.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-            Updated {CHANGELOG_UPDATED}. Version {PRODUCT_VERSION} is for the mess that builds up:
-            windows you forgot you opened, tabs you haven’t touched, and the same page hiding
-            behind a slightly different URL.
+            {updatedBetween
+              ? `You updated from ${updatedBetween.from} to ${updatedBetween.to}. `
+              : `Updated ${CHANGELOG_UPDATED}. `}
+            Version {PRODUCT_VERSION} is for the mess that builds up: windows you forgot you
+            opened, tabs you haven’t touched, and the same page hiding behind a slightly different
+            URL.
           </p>
 
           <ol className="mt-12 border-t border-hairline">
