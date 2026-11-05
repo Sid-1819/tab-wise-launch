@@ -14,7 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/use-reveal";
 import { CHROME_WEB_STORE_URL, PRODUCT_VERSION } from "@/lib/constants";
-import { WHATS_NEW_NOTES } from "@/lib/whats-new";
+import { CHANGELOG_LEDE, WHATS_NEW_NOTES } from "@/lib/whats-new";
 import { cn } from "@/lib/utils";
 
 const COLORS = [
@@ -125,7 +125,7 @@ function VersionPreview({ onClose }: { onClose: () => void }) {
   const [color, setColor] = useState<(typeof COLORS)[number]>(COLORS[0]);
   const [nested, setNested] = useState(true);
   const [collapsed, setCollapsed] = useState<WindowId[]>([]);
-  const [note, setNote] = useState("Click around. This is the 2.5 panel, running in the page.");
+  const [note, setNote] = useState(`Click around. This is the ${PRODUCT_VERSION} panel, running in the page.`);
 
   const visible = tabs.filter((tab) => scope === "all" || tab.window === "this");
   const unused = visible.filter((tab) => tab.staleDays >= threshold && !tab.sleeping);
@@ -524,9 +524,7 @@ export function WhatsNew() {
             The panel keeps up when the browser doesn’t.
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Version {PRODUCT_VERSION} is for the mess that builds up: windows you forgot you
-            opened, tabs you haven’t touched, and the same page hiding behind a slightly different
-            URL.
+            {CHANGELOG_LEDE}
           </p>
         </div>
 

@@ -3,12 +3,12 @@ import Link from "next/link";
 import { SiteLayout } from "@/components/site/site-layout";
 import { CtaBanner } from "@/components/site/cta-banner";
 import { PRODUCT_NAME, PRODUCT_VERSION } from "@/lib/constants";
-import { CHANGELOG_UPDATED, WHATS_NEW_NOTES } from "@/lib/whats-new";
+import { CHANGELOG_LEDE, CHANGELOG_UPDATED, WHATS_NEW_NOTES } from "@/lib/whats-new";
 import { breadcrumbJsonLd, pageMetadata, webpageJsonLd } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Changelog",
-  description: `What’s new in Tab Wise ${PRODUCT_VERSION}: sleep unused tabs, multi-window side panel, nested domain groups, smarter duplicates, and named group colors.`,
+  description: `What’s new in Tab Wise ${PRODUCT_VERSION}: keyboard navigation in the side panel, a command palette, Chrome’s own tab groups, and localhost grouping.`,
   path: "/changelog",
 });
 
@@ -56,9 +56,7 @@ export default async function ChangelogPage({
             {updatedBetween
               ? `You updated from ${updatedBetween.from} to ${updatedBetween.to}. `
               : `Updated ${CHANGELOG_UPDATED}. `}
-            Version {PRODUCT_VERSION} is for the mess that builds up: windows you forgot you
-            opened, tabs you haven’t touched, and the same page hiding behind a slightly different
-            URL.
+            {CHANGELOG_LEDE}
           </p>
 
           <ol className="mt-12 border-t border-hairline">
